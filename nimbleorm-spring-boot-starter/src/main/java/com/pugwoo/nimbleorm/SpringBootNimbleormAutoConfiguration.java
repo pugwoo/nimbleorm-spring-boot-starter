@@ -13,7 +13,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import com.pugwoo.dbhelper.DBHelper;
 import com.pugwoo.dbhelper.impl.SpringJdbcDBHelper;
 
-@ConditionalOnClass(DataSource.class)
+@ConditionalOnClass({DataSource.class, JdbcTemplate.class, NamedParameterJdbcTemplate.class})
 @Configuration
 @EnableConfigurationProperties(NimbleOrmProperties.class)
 public class SpringBootNimbleormAutoConfiguration {
