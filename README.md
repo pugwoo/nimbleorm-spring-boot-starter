@@ -11,8 +11,13 @@ spring boot starter for nimble-orm
 		<dependency>
 			<groupId>com.pugwoo</groupId>
 			<artifactId>nimbleorm-spring-boot-starter</artifactId>
-			<version>0.0.1</version>
+			<version>0.0.2</version>
 		</dependency>
 ```
 
 就可以开始使用了。详细例子见该git的nimbleorm-spring-boot-starter-demo目录，已经nimble-orm项目更详细的文档。
+
+## changelog
+
+v0.0.1 基本功能完成
+v0.0.2 nimbleorm升级到0.8.7，springboot升级到2.0.4
