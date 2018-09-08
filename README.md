@@ -11,7 +11,7 @@ spring boot starter for nimble-orm
 		<dependency>
 			<groupId>com.pugwoo</groupId>
 			<artifactId>nimbleorm-spring-boot-starter</artifactId>
-			<version>0.0.2</version>
+			<version>0.9.0</version>
 		</dependency>
 ```
 
@@ -21,3 +21,4 @@ spring boot starter for nimble-orm
 
 v0.0.1 基本功能完成
 v0.0.2 nimbleorm升级到0.8.7，springboot升级到2.0.4
+v0.9.0 nimbleorm升级到0.9.0，以后版本和nimble-orm保持一致
