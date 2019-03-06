@@ -17,6 +17,8 @@ spring boot starter for nimble-orm
 
 就可以开始使用了。详细例子见该git的nimbleorm-spring-boot-starter-demo目录，已经nimble-orm项目更详细的文档。
 
+说明：该starter只适用于应用中只有一个数据库连接（即jdbcTemplate只要单个实例）的情况
+
 ## changelog
 
 v0.0.1 基本功能完成
