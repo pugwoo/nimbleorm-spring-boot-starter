@@ -8,11 +8,11 @@ spring boot starter for nimble-orm
 然后，在项目中maven引入依赖：
 
 ```xml
-		<dependency>
-			<groupId>com.pugwoo</groupId>
-			<artifactId>nimbleorm-spring-boot-starter</artifactId>
-			<version>0.9.0</version>
-		</dependency>
+<dependency>
+	<groupId>com.pugwoo</groupId>
+	<artifactId>nimbleorm-spring-boot-starter</artifactId>
+	<version>0.9.1</version>
+</dependency>
 ```
 
 就可以开始使用了。详细例子见该git的nimbleorm-spring-boot-starter-demo目录，已经nimble-orm项目更详细的文档。
