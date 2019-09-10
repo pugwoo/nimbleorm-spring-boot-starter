@@ -11,7 +11,7 @@ spring boot starter for nimble-orm
 <dependency>
 	<groupId>com.pugwoo</groupId>
 	<artifactId>nimbleorm-spring-boot-starter</artifactId>
-	<version>0.9.4</version>
+	<version>0.9.5</version>
 </dependency>
 ```
 
