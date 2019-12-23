@@ -2,12 +2,12 @@ package com.pugwoo.nimbleormspringbootstarterdemo;
 
 import java.util.List;
 
+import com.pugwoo.dbhelper.json.NimbleOrmJSON;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 import com.pugwoo.dbhelper.DBHelper;
-import com.pugwoo.dbhelper.json.JSON;
 import com.pugwoo.nimbleormspringbootstarterdemo.entity.StudentDO;
 
 @SpringBootApplication
@@ -23,6 +23,6 @@ public class NimbleormSpringBootStarterDemoApplication {
 		// StudentDO的建表语句详见create_table.sql文件，建表之后自行往表里加些数据
 		List<StudentDO> students = dbHelper.getAll(StudentDO.class);
 		System.out.println("total:" + students.size());
-		System.out.println(JSON.toJson(students));
+		System.out.println(NimbleOrmJSON.toJson(students));
 	}
 }

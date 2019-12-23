@@ -6,7 +6,7 @@
 
 	<groupId>com.pugwoo</groupId>
 	<artifactId>nimbleorm-spring-boot-starter</artifactId>
-	<version>0.9.5</version>
+	<version>0.9.6</version>
 	<packaging>jar</packaging>
 
 	<name>nimbleorm-spring-boot-starter</name>
@@ -16,7 +16,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<spring-boot.version>2.1.8.RELEASE</spring-boot.version>
+		<spring-boot.version>2.2.2.RELEASE</spring-boot.version>
 	</properties>
 
 	<developers>
@@ -44,7 +44,7 @@
 		<dependency>
 			<groupId>com.pugwoo</groupId>
 			<artifactId>nimble-orm</artifactId>
-			<version>0.9.5</version>
+			<version>0.9.6</version>
 		</dependency>
 
 		<dependency>

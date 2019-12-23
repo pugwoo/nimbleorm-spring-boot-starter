@@ -1,6 +1,11 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/nimbleorm
-    username: root
-    password: 
+    url: jdbc:mysql://192.168.0.111:3306/nimbleorm
+    username: dev
+    password: devdev
     driver-class-name: com.mysql.jdbc.Driver
+
+nimbleorm:
+  timeoutWarningValve: 1000
+  maxPageSize: 3000
+#  isPrimaryBean: false
