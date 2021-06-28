@@ -6,7 +6,7 @@
 
 	<groupId>com.pugwoo</groupId>
 	<artifactId>nimbleorm-spring-boot-starter</artifactId>
-	<version>0.9.9</version>
+	<version>1.0.1</version>
 	<packaging>jar</packaging>
 
 	<name>nimbleorm-spring-boot-starter</name>
@@ -44,7 +44,7 @@
 		<dependency>
 			<groupId>com.pugwoo</groupId>
 			<artifactId>nimble-orm</artifactId>
-			<version>0.9.9</version>
+			<version>1.0.1</version>
 		</dependency>
 
 		<dependency>
