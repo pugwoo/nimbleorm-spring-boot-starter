@@ -1,7 +1,7 @@
 package com.pugwoo.nimbleorm;
 
-import javax.sql.DataSource;
-
+import com.pugwoo.dbhelper.DBHelper;
+import com.pugwoo.dbhelper.impl.SpringJdbcDBHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -12,8 +12,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
-import com.pugwoo.dbhelper.DBHelper;
-import com.pugwoo.dbhelper.impl.SpringJdbcDBHelper;
+import javax.sql.DataSource;
 
 @ConditionalOnClass({DataSource.class, JdbcTemplate.class, NamedParameterJdbcTemplate.class})
 @Configuration
@@ -27,7 +26,7 @@ public class SpringBootNimbleormAutoConfiguration {
 	@Bean
 	public DBHelper getDBHelper(JdbcTemplate jdbcTemplate,
 			NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
-		return _getDBHelper(jdbcTemplate, namedParameterJdbcTemplate);
+		return initDBHelper(jdbcTemplate, namedParameterJdbcTemplate);
 	}
 
 	@ConditionalOnProperty(value = "nimbleorm.isPrimaryBean", havingValue = "true", matchIfMissing = false)
@@ -35,10 +34,10 @@ public class SpringBootNimbleormAutoConfiguration {
 	@Primary
 	public DBHelper getPrimaryDBHelper(JdbcTemplate jdbcTemplate,
 									   NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
-		return _getDBHelper(jdbcTemplate, namedParameterJdbcTemplate);
+		return initDBHelper(jdbcTemplate, namedParameterJdbcTemplate);
 	}
 
-	private DBHelper _getDBHelper(JdbcTemplate jdbcTemplate,
+	private DBHelper initDBHelper(JdbcTemplate jdbcTemplate,
 								  NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
 		SpringJdbcDBHelper springJdbcDBHelper = new SpringJdbcDBHelper();
 
@@ -48,7 +47,7 @@ public class SpringBootNimbleormAutoConfiguration {
 				if(timeoutWarningValve > 0) {
 					springJdbcDBHelper.setTimeoutWarningValve(timeoutWarningValve);
 				}
-			} catch(Exception e) { // ignore parse
+			} catch(Exception e) { // ignore parse error, this config item is not important.
 			}
 		}
 
@@ -58,7 +57,7 @@ public class SpringBootNimbleormAutoConfiguration {
 				if(maxPageSize > 0) {
 					springJdbcDBHelper.setMaxPageSize(maxPageSize);
 				}
-			} catch (Exception e) { // ignore parse
+			} catch (Exception e) { // ignore parse error, this config item is not important.
 			}
 		}
 
