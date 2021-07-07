@@ -13,9 +13,15 @@ public class NimbleOrmProperties {
 	
 	/**
 	 * 对应于DBHelper的setMaxPageSize:
-	 * 设置允许的每页最大的个数，当页数超过允许的最大页数时，设置为最大页数
+	 * 设置允许的每页最大的个数，当每页个数超过该值时，设置为该值。
+	 * 默认为不限制。
 	 */
 	private String maxPageSize;
+
+	/**
+	 * 是否设置为primary Bean，默认false；当只有一个DBHelper对象时，不需要设置是否为primary
+	 */
+	private Boolean isPrimaryBean;
 
 	public String getTimeoutWarningValve() {
 		return timeoutWarningValve;
@@ -32,5 +38,12 @@ public class NimbleOrmProperties {
 	public void setMaxPageSize(String maxPageSize) {
 		this.maxPageSize = maxPageSize;
 	}
-	
+
+	public Boolean getIsPrimaryBean() {
+		return isPrimaryBean;
+	}
+
+	public void setIsPrimaryBean(Boolean isPrimaryBean) {
+		this.isPrimaryBean = isPrimaryBean;
+	}
 }

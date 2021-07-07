@@ -8,7 +8,7 @@
 <dependency>
 	<groupId>com.pugwoo</groupId>
 	<artifactId>nimbleorm-spring-boot-starter</artifactId>
-	<version>1.0.1</version>
+	<version>1.0.2</version>
 </dependency>
 ```
 
