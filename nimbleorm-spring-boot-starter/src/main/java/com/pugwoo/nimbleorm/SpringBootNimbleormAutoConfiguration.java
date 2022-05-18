@@ -10,11 +10,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 import javax.sql.DataSource;
 
-@ConditionalOnClass({DataSource.class, JdbcTemplate.class, NamedParameterJdbcTemplate.class})
+@ConditionalOnClass({DataSource.class, JdbcTemplate.class})
 @Configuration
 @EnableConfigurationProperties(NimbleOrmProperties.class)
 public class SpringBootNimbleormAutoConfiguration {
@@ -24,21 +23,18 @@ public class SpringBootNimbleormAutoConfiguration {
 
 	@ConditionalOnProperty(value = "nimbleorm.isPrimaryBean", havingValue = "false", matchIfMissing = true)
 	@Bean
-	public DBHelper getDBHelper(JdbcTemplate jdbcTemplate,
-			NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
-		return initDBHelper(jdbcTemplate, namedParameterJdbcTemplate);
+	public DBHelper getDBHelper(JdbcTemplate jdbcTemplate) {
+		return initDBHelper(jdbcTemplate);
 	}
 
 	@ConditionalOnProperty(value = "nimbleorm.isPrimaryBean", havingValue = "true", matchIfMissing = false)
 	@Bean
 	@Primary
-	public DBHelper getPrimaryDBHelper(JdbcTemplate jdbcTemplate,
-									   NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
-		return initDBHelper(jdbcTemplate, namedParameterJdbcTemplate);
+	public DBHelper getPrimaryDBHelper(JdbcTemplate jdbcTemplate) {
+		return initDBHelper(jdbcTemplate);
 	}
 
-	private DBHelper initDBHelper(JdbcTemplate jdbcTemplate,
-								  NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
+	private DBHelper initDBHelper(JdbcTemplate jdbcTemplate) {
 		SpringJdbcDBHelper springJdbcDBHelper = new SpringJdbcDBHelper();
 
 		if(isNotBlank(nimbleOrmProperties.getTimeoutWarningValve())) {
@@ -62,7 +58,6 @@ public class SpringBootNimbleormAutoConfiguration {
 		}
 
 		springJdbcDBHelper.setJdbcTemplate(jdbcTemplate);
-		springJdbcDBHelper.setNamedParameterJdbcTemplate(namedParameterJdbcTemplate);
 
 		return springJdbcDBHelper;
 	}
