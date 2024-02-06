@@ -11,9 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import javax.sql.DataSource;
-
-@ConditionalOnClass({DataSource.class, JdbcTemplate.class})
+@ConditionalOnClass({JdbcTemplate.class})
 @Configuration
 @EnableConfigurationProperties(NimbleOrmProperties.class)
 public class SpringBootNimbleormAutoConfiguration {
@@ -37,11 +35,11 @@ public class SpringBootNimbleormAutoConfiguration {
 	private DBHelper initDBHelper(JdbcTemplate jdbcTemplate) {
 		SpringJdbcDBHelper springJdbcDBHelper = new SpringJdbcDBHelper();
 
-		if(isNotBlank(nimbleOrmProperties.getTimeoutWarningValve())) {
+		if(isNotBlank(nimbleOrmProperties.getSlowSqlWarningValve())) {
 			try {
-				long timeoutWarningValve = Long.parseLong(nimbleOrmProperties.getTimeoutWarningValve().trim());
-				if(timeoutWarningValve > 0) {
-					springJdbcDBHelper.setTimeoutWarningValve(timeoutWarningValve);
+				long slowSqlWarningValve = Long.parseLong(nimbleOrmProperties.getSlowSqlWarningValve().trim());
+				if(slowSqlWarningValve > 0) {
+					springJdbcDBHelper.setSlowSqlWarningValve(slowSqlWarningValve);
 				}
 			} catch(Exception e) { // ignore parse error, this config item is not important.
 			}

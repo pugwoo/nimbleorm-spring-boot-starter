@@ -6,10 +6,10 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class NimbleOrmProperties {
 
 	/**
-	 * 对应于DBHelper的setTimeoutWarningValve:
+	 * 对应于DBHelper的setSlowSqlWarningValve:
 	 * 设置SQL执行超时的WARN log的超时时间，单位毫秒，默认为1000毫秒
 	 */
-	private String timeoutWarningValve;
+	private String slowSqlWarningValve;
 	
 	/**
 	 * 对应于DBHelper的setMaxPageSize:
@@ -23,12 +23,12 @@ public class NimbleOrmProperties {
 	 */
 	private Boolean isPrimaryBean;
 
-	public String getTimeoutWarningValve() {
-		return timeoutWarningValve;
+	public String getSlowSqlWarningValve() {
+		return slowSqlWarningValve;
 	}
 
-	public void setTimeoutWarningValve(String timeoutWarningValve) {
-		this.timeoutWarningValve = timeoutWarningValve;
+	public void setSlowSqlWarningValve(String slowSqlWarningValve) {
+		this.slowSqlWarningValve = slowSqlWarningValve;
 	}
 
 	public String getMaxPageSize() {

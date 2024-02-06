@@ -3,9 +3,9 @@ spring:
     url: jdbc:mysql://192.168.0.111:3306/nimbleorm
     username: dev
     password: devdev
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
 nimbleorm:
-  timeoutWarningValve: 1000 # 单位毫秒，默认1000
+  slowSqlWarningValve: 1000 # 单位毫秒，默认1000
   maxPageSize: 3000 # 每页个数，没有默认值，不设置为不限制
   isPrimaryBean: false # 默认false

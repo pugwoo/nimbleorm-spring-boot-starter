@@ -8,7 +8,7 @@
 <dependency>
 	<groupId>com.pugwoo</groupId>
 	<artifactId>nimbleorm-spring-boot-starter</artifactId>
-	<version>1.2.0</version>
+	<version>1.6.1</version>
 </dependency>
 ```
 
@@ -17,7 +17,7 @@
 默认情况下不需要配置参数就可以使用了，如有需要，可以配置一下参数：
 ```yaml
 nimbleorm:
-  timeoutWarningValve: 1000 # 慢SQL阈值，单位毫秒，默认1000
+  slowSqlWarningValve: 1000 # 慢SQL阈值，单位毫秒，默认1000
   maxPageSize: 1000 # 全局设置最大每页个数，默认不限制
   isPrimaryBean: false # 是否是Primary的Bean，默认不是
 ```
@@ -30,3 +30,4 @@ nimbleorm:
 - v0.0.2 nimbleorm升级到0.8.7，springboot升级到2.0.4
 - v0.9.0 nimbleorm升级到0.9.0，以后版本和nimble-orm保持一致，如无特别说明，更新的版本均遵循此规则
 - v1.2.0 nimbleorm升级到1.2.2+，此后版本会自动升级到最新版本
+- v1.6.1 nimbleorm升级到1.6.1+，支持spring boot 3+，此后版本会自动升级到最新版本
